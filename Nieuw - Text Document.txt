@@ -1,0 +1,17 @@
+numpy dia 7 zie shape(let op theorie examen)
+
+dia 22
+
+Dia 27 let op oorspronglijk 2 keer een 1dimentional array maar daarna word het een 2 dementional let op op het examen moet je dit corect schrijven
+
+axis 0 2d array vertical 1 horizontal
+
+35 using unice returns a sorted uice list
+
+
+dia let op roud rounds up or down naar het eerste even numer round(1.5)=2 round(1.1)=2 round(5.1)=6 round(0.9)=0 en zo verder 
+
+57
+
+
+
