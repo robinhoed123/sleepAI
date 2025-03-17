@@ -23,8 +23,8 @@ df['Exercise(mins/day)'].fillna(df['Exercise(mins/day)'].mean(), inplace=True)
 df['Caffeine Intake (mg)'].fillna(df['Caffeine Intake (mg)'].mean(), inplace=True)
 df['Screen Time Before Bed (mins)'].fillna(df['Screen Time Before Bed (mins)'].mean(), inplace=True)
 df['Work Hours (hrs/day)'].fillna(df['Work Hours (hrs/day)'].mean(), inplace=True)
-df['SleepQ'].fillna(method='bfill', inplace=True)
-df['Gender'].fillna(method='ffill', inplace=True)
+df['SleepQ'].bfill(method='bfill', inplace=True)
+df['Gender'].ffill(inplace=True)
 
 #fearue engeniering 
 df = df.drop_duplicates()

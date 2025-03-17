@@ -4,7 +4,7 @@ import pygame
 # Initialize sound effects
 pygame.mixer.init()
 try:
-    hover_sound = pygame.mixer.Sound("hover.wav")
+    hover_sound = pygame.mixer.Sound("hover.mp3")
 except:
     hover_sound = pygame.mixer.Sound(buffer=bytearray([0]))
 
@@ -18,7 +18,7 @@ class LifeStyleAI(ctk.CTk):
         
         # Configure window
         self.title("Life Style AI")
-        self.attributes('-fullscreen', True)
+        self.attributes('-fullscreen', False)
         
         # Start with main screen
         self.create_main_screen()
@@ -30,7 +30,7 @@ class LifeStyleAI(ctk.CTk):
         
         # Add padding
         padding_frame = ctk.CTkFrame(self.main_frame, fg_color="transparent")
-        padding_frame.pack(pady=100)
+        padding_frame.pack(pady=10)
         
         # Title
         title = ctk.CTkLabel(self.main_frame, text="Life Style AI", font=("Arial", 60, "bold"))
@@ -62,8 +62,8 @@ class LifeStyleAI(ctk.CTk):
         
         # Create form frame - make it more compact horizontally
         form_frame = ctk.CTkFrame(self.test_ai_frame, width=600)
-        form_frame.pack(pady=20, padx=100)
-        form_frame.pack_propagate(False)  # Prevent frame from shrinking
+        form_frame = ctk.CTkFrame(self.test_ai_frame)
+        form_frame.pack(pady=20, padx=100, fill="y")
         
         # Age
         age_frame = ctk.CTkFrame(form_frame, fg_color="transparent")
@@ -114,6 +114,7 @@ class LifeStyleAI(ctk.CTk):
         quality_entry = ctk.CTkEntry(quality_frame, textvariable=self.quality_var, width=100, font=("Arial", 18))
         quality_entry.pack(side="right", padx=20)
         quality_entry.bind("<FocusOut>", lambda event: self.validate_input(self.quality_var, 1, 10))
+
         
         # Exercise
         exercise_frame = ctk.CTkFrame(form_frame, fg_color="transparent")
@@ -286,14 +287,18 @@ class LifeStyleAI(ctk.CTk):
         
         stress_result = ctk.CTkLabel(stress_frame, text="5.4/10", font=("Arial", font_size, "bold"))
         stress_result.pack(side="right", padx=20)
-    
+        
+
+        
     def return_to_main(self):
         """Return to main screen"""
         # Clear current frames
         if hasattr(self, 'test_ai_frame') and self.test_ai_frame:
             self.test_ai_frame.destroy()
+            self.create_main_screen()
         if hasattr(self, 'visualize_frame') and self.visualize_frame:
             self.visualize_frame.destroy()
+            self.create_main_screen()
 if __name__ == "__main__":
     app = LifeStyleAI()
     app.mainloop()

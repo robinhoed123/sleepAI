@@ -18,7 +18,7 @@ class LifeStyleAI(ctk.CTk):
         
         # Configure window
         self.title("Life Style AI")
-        self.attributes('-fullscreen', True)
+        self.attributes('-fullscreen')
         
         # Start with main screen
         self.create_main_screen()
